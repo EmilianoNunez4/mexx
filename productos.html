@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | MEXX</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="imagenes/logo-Photoroom.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    /* --- Filtros de Productos --- */
+.filtros {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.filtro-btn {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #f40000;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filtro-btn:hover {
+  background: #f40000;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.filtro-btn.active {
+  background: #f40000;
+  color: white;
+  box-shadow: 0 0 10px rgba(244, 0, 0, 0.8);
+}
+
+/* Adaptación del grid */
+/* --- Layout del listado de productos (centrado y 3 por fila) --- */
+.productos-listado .contenedor {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px; /* espacio entre productos */
+  margin: 0 auto;
+}
+
+.producto {
+  background: rgba(20,20,20,0.9);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  max-width: 340px; /* ancho máximo de cada card */
+  margin: 0 auto;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,0,0,0.3);
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.producto img:hover {
+  transform: scale(1.05);
+}
+
+/* Adaptación responsive */
+@media (max-width: 1024px) {
+  .grid-productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .grid-productos {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled">
+  <div class="nav-container">
+    <div class="logo">
+        <img src="imagenes/LOGO-MEXX.NEG.png" alt="logo-mexx">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="productos.html" class="active">Productos</a></li>
+      <li><a href="https://www.mexx.com.ar/">Mexx</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sección Productos -->
+<section class="productos-listado" style="padding-top: 120px;">
+  <div class="contenedor">
+    <h1 style="text-align:center; font-size:2.5rem; margin-bottom:30px; color:#ffffff;" data-aos="fade-up" data-aos-duration="1000">Nuestros Productos</h1>
+
+    <!-- Filtros -->
+    <div class="filtros" data-aos="fade-up" data-aos-duration="1500">
+      <button class="filtro-btn active" data-categoria="todos">Todos</button>
+      <button class="filtro-btn" data-categoria="placas">Placas de Video</button>
+      <button class="filtro-btn" data-categoria="procesadores">Procesadores</button>
+      <button class="filtro-btn" data-categoria="perifericos">Periféricos</button>
+      <button class="filtro-btn" data-categoria="memorias">Memorias / RAM</button>
+    </div>
+
+    <!-- Grid de productos -->
+    <div class="grid-productos" data-aos="fade-up" data-aos-duration="4000">
+
+      <div class="producto" data-categoria="placas">
+        <img src="imagenes/placa de video-Photoroom.png" alt="RTX 5070">
+        <h3>GeForce RTX 5070</h3>
+        <p class="price-line">Antes: <span class="price-old">$1.220.000</span></p>
+        <p class="price-line"><strong>AHORA</strong> <span class="price-new">$999.900</span></p>
+        <button class="btn-comprar"><a href="https://www.mexx.com.ar/productos-rubro/placas-de-video/50161-placa-de-video-geforce-rtx-5070ti-16gb-gigabyte-gaming-oc.html">Comprar</a></button>
+      </div>
+
+      <div class="producto" data-categoria="procesadores">
+        <img src="imagenes/vvv-Photoroom-Photoroom.png" alt="Ryzen 9">
+        <h3>Ryzen 9 9900X3D</h3>
+        <p class="price-line">Antes: <span class="price-old">$1.140.000</span></p>
+        <p class="price-line"><strong>AHORA</strong> <span class="price-new">$999.900</span></p>
+        <button class="btn-comprar"><a href="https://www.mexx.com.ar/productos-rubro/procesadores/48832-procesador-amd-ryzen-9-9900x-3d-5.5-ghz-am5-sin-cooler-con-gpu.html">Comprar</a></button>
+      </div>
+
+      <div class="producto" data-categoria="perifericos">
+        <img src="imagenes/oystick-Photoroom-Photoroom.png" alt="Joystick">
+        <h3>Joystick Razer Xbox</h3>
+        <p class="price-line">Antes: <span class="price-old">$85.000</span></p>
+        <p class="price-line"><strong>AHORA</strong> <span class="price-new">$69.000</span></p>
+        <button class="btn-comprar"><a href="https://www.mexx.com.ar/productos-rubro/teclados,-mouses-y-pads/48874-kit-gamer-redragon-teclado-y-mouse-k617rgb-sp+-m724-negro-s143.html">Comprar</a></button>
+      </div>
+
+      <div class="producto" data-categoria="perifericos">
+        <img src="imagenes/KITGAMER-Photoroom (1).png" alt="Kit Gamer">
+        <h3>Kit Gamer Redragon</h3>
+        <p class="price-line">Antes: <span class="price-old">$32.000</span></p>
+        <p class="price-line"><strong>AHORA</strong> <span class="price-new">$25.900</span></p>
+        <button class="btn-comprar">Comprar</button>
+      </div>
+
+      <div class="producto" data-categoria="memorias">
+        <img src="imagenes/DDR5-Photoroom-Photoroom.png" alt="RAM DDR5">
+        <h3>RAM DDR5 32GB 5600MHz</h3>
+        <p class="price-line">Antes: <span class="price-old">$140.000</span></p>
+        <p class="price-line"><strong>AHORA</strong> <span class="price-new">$99.000</span></p>
+        <button class="btn-comprar"><a href="https://www.mexx.com.ar/productos-rubro/memorias-ram/48231-memoria-ram-ddr5-32gb-5600-mhz-kingston-fury-beast-rgb.html">Comprar</a></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Síguenos en las <strong>redes sociales</strong></p>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/mexx.com.ar/"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/mexx.com.ar/"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.youtube.com/channel/UCFjsTZQHyJ_R2AY6zh4-dMw"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p>© 2025 MEXX Gaming - www.mexxgaming.com</p>
+</footer>
+
+<script>
+  // --- Filtro de productos ---
+  const botonesFiltro = document.querySelectorAll('.filtro-btn');
+  const productos = document.querySelectorAll('.producto');
+
+  botonesFiltro.forEach(btn => {
+    btn.addEventListener('click', () => {
+      botonesFiltro.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const categoria = btn.dataset.categoria;
+
+      productos.forEach(prod => {
+        if (categoria === 'todos' || prod.dataset.categoria === categoria) {
+          prod.style.display = 'block';
+          setTimeout(() => prod.style.opacity = '1', 50);
+        } else {
+          prod.style.opacity = '0';
+          setTimeout(() => prod.style.display = 'none', 300);
+        }
+      });
+    });
+  });
+</script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script> AOS.init(); </script>
+
+</body>
+</html>
