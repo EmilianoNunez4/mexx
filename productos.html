@@ -98,24 +98,84 @@
   }
 }
 
+/* --- Navbar responsiva / menú hamburguesa --- */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-toggle:hover {
+  color: #f40000;
+  transform: scale(1.1);
+}
+
+/* --- Estilo del menú mobile --- */
+@media (max-width: 768px) {
+  .nav-container {
+    width: 90%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}
 
   </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar scrolled">
+<!-- Navbar -->
+<nav class="navbar transparent">
   <div class="nav-container">
     <div class="logo">
-        <img src="imagenes/LOGO-MEXX.NEG.png" alt="logo-mexx">
+      <a href="index.html"><img src="imagenes/LOGO-MEXX.NEG.png" alt="logo-mexx"></a>
     </div>
-    <ul class="nav-links">
+
+    <!-- Botón hamburguesa -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Links -->
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="productos.html" class="active">Productos</a></li>
+      <li><a href="productos.html">Productos</a></li>
       <li><a href="https://www.mexx.com.ar/">Mexx</a></li>
     </ul>
   </div>
 </nav>
+
 
 <!-- Sección Productos -->
 <section class="productos-listado" style="padding-top: 120px;">
@@ -211,6 +271,19 @@
         }
       });
     });
+  });
+</script>
+
+<script>
+  // --- Menú hamburguesa ---
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
   });
 </script>
 

@@ -279,3 +279,55 @@ footer .social-icons a:hover {
 html {
   scroll-behavior: smooth;
 }
+
+/* --- Navbar responsiva / menú hamburguesa --- */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-toggle:hover {
+  color: #f40000;
+  transform: scale(1.1);
+}
+
+/* --- Estilo del menú mobile --- */
+@media (max-width: 768px) {
+  .nav-container {
+    width: 90%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}

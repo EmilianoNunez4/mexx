@@ -17,18 +17,27 @@
 <body>
 
 <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar transparent">
   <div class="nav-container">
     <div class="logo">
-        <img src="imagenes/LOGO-MEXX.NEG.png" alt="logo-mexx">
+      <a href="index.html"><img src="imagenes/LOGO-MEXX.NEG.png" alt="logo-mexx"></a>
     </div>
-    <ul class="nav-links">
+
+    <!-- Botón hamburguesa -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Links -->
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="productos.html">Productos</a></li>
       <li><a href="https://www.mexx.com.ar/">Mexx</a></li>
     </ul>
   </div>
 </nav>
+
 
   <!-- Hero Section con slideshow -->
   <section class="hero">
@@ -102,6 +111,19 @@
   <p>© 2025 MEXX Gaming - www.mexxgaming.com</p>
   </footer>
 
+
+  <script>
+    // --- Menú hamburguesa ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     // Slideshow Hero
